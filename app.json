@@ -1,29 +1,62 @@
 {
   "expo": {
-    "name": "profile-card",
-    "slug": "profile-card",
-    "version": "1.0.0",
+    "name": "ProfileCard",
+    "slug": "profilecard-native-power",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0a2e0a"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.crisdayanti.profilecard",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Aplikasi ini butuh akses kamera untuk mengambil foto profil kamu.",
+        "NSPhotoLibraryUsageDescription": "Aplikasi ini butuh akses galeri untuk memilih foto profil dari HP kamu.",
+        "NSLocationWhenInUseUsageDescription": "Aplikasi ini butuh akses lokasi untuk menampilkan koordinat dan nama tempatmu saat ini."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#0a2e0a"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.crisdayanti.profilecard",
+      "versionCode": 2,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Aplikasi ini butuh akses galeri untuk memilih foto profil kamu.",
+          "cameraPermission": "Aplikasi ini butuh akses kamera untuk mengambil foto profil kamu."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Aplikasi ini butuh akses lokasi untuk menampilkan koordinat dan nama tempatmu saat ini."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "686fce8a-0f13-40bf-ae16-237c01cb36a6"
+      }
     }
   }
 }
