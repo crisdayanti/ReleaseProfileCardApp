@@ -128,3 +128,94 @@ Versi app (dibaca dari `app.json` lewat `expo-constants`) ditampilkan sebagai fo
 |---|---|---|---|
 | 1.0.0 | 1 | _(isi tanggal build pertama)_ | Rilis awal — semua fitur Level 1, 2, 3 (kamera, galeri, GPS, persistensi, check-in, cuaca) |
 | 1.0.1 | 2 | _(isi tanggal build kedua, setelah `eas build` dijalankan ulang)_ | Perubahan UI: subtitle header diupdate dari "Kamera • Galeri • GPS • Persistensi" menjadi "Kamera • Galeri • GPS • **Check-in**" — supaya lebih mencerminkan fitur andalan app (check-in gabungan selfie+lokasi+cuaca) yang belum tercermin di versi 1.0.0 |
+
+
+# Pertemuan 15
+<div align="center">
+
+# 📇 ProfileCard
+
+**Kartu profil digital berbasis kamera & GPS yang membantu siapa saja mencatat kehadiran atau kunjungan secara instan dengan bukti foto, lokasi, dan cuaca — sulit dimanipulasi, terdokumentasi otomatis.**
+
+![Version](https://img.shields.io/badge/version-1.0.1-00b894?style=flat-square)
+![Platform](https://img.shields.io/badge/platform-Android-3ddc84?style=flat-square&logo=android&logoColor=white)
+![React Native](https://img.shields.io/badge/React%20Native-Expo-61dafb?style=flat-square&logo=react&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square)
+
+</div>
+
+---
+
+## 📸 Screenshot
+
+<div align="center">
+
+| Sukses (Foto + Lokasi) | Izin Ditolak | Riwayat Check-in |
+|:---:|:---:|:---:|
+| <img width="718" height="1599" alt="image" src="https://github.com/user-attachments/assets/69da02c9-df39-48fd-bee4-ff853c339cbb" /> | <img width="718" height="1599" alt="image" src="https://github.com/user-attachments/assets/bcc1306a-fd14-4214-99f6-8b4cd247a494" /> | <img width="718" height="1599" alt="image" src="https://github.com/user-attachments/assets/44891dfc-4be9-49e3-9aec-715a14738a7e" /> S|
+
+</div>
+
+> Ganti path gambar di atas dengan screenshot asli dari HP-mu (folder `screenshots/`) sebelum push — pastikan tidak ada gambar yang broken saat README ditampilkan di GitHub.
+
+## ✨ Fitur Utama
+
+- **📸 Foto Profil Fleksibel** — ambil foto langsung lewat kamera atau pilih dari galeri lewat modal custom yang elegan.
+- **📍 Lokasi Otomatis** — deteksi koordinat GPS saat ini beserta nama tempat (reverse geocoding), tanpa perlu isi manual.
+- **📸📍 Check-in Terintegrasi** — selfie, koordinat, dan cuaca real-time digabung otomatis jadi satu catatan riwayat di `FlatList`.
+- **🗺️ Integrasi Google Maps** — buka lokasi manapun di riwayat langsung lewat aplikasi Maps.
+- **💾 Persistensi Lokal** — seluruh data (profil & riwayat check-in) tersimpan otomatis di perangkat lewat `AsyncStorage`, tetap ada walau app ditutup.
+- **🔐 Permission Flow Etis** — priming screen sebelum minta izin sistem, dan penanganan penolakan izin yang ramah (tanpa crash, dengan tombol langsung ke Pengaturan HP).
+
+## 🧰 Tech Stack
+
+| Teknologi | Kegunaan |
+|---|---|
+| **React Native (Expo)** | Framework utama, membangun UI cross-platform (Android & iOS) dari satu basis kode |
+| **expo-image-picker** | Akses kamera & galeri untuk foto profil dan selfie check-in |
+| **expo-location** | Akses GPS, koordinat, dan reverse geocoding (nama tempat) |
+| **expo-constants** | Membaca versi app dari `app.json` untuk ditampilkan di UI |
+| **@react-native-async-storage/async-storage** | Penyimpanan data lokal (profil & riwayat check-in) yang persisten |
+| **Open-Meteo API** | Data cuaca real-time berdasarkan koordinat GPS saat check-in |
+| **EAS Build** | Build APK production-ready langsung dari cloud Expo |
+
+## ⚙️ Setup Guide
+
+```bash
+# 1. Clone repository ini
+git clone https://github.com/[username]/[nama-repo].git
+cd [nama-repo]
+
+# 2. Install dependency
+npm install
+
+# 3. Jalankan development server
+npx expo start
+```
+
+Scan QR code yang muncul menggunakan aplikasi **Expo Go** di HP fisik (fitur kamera & GPS butuh hardware asli, tidak bisa diuji penuh lewat emulator/browser).
+
+## 📦 Download APK
+
+**🔗 Link download APK:** [Download di EAS Dashboard](https://expo.dev/accounts/crisdayanti/projects/profilecard-native-power/builds/02153dbc-3eb2-431e-81de-cbc5bf4fad59)
+
+**Cara install:**
+1. Download file APK lewat link di atas
+2. Pindahkan file `.apk` ke HP Android kamu
+3. Buka file tersebut → izinkan "Install dari sumber tidak dikenal" kalau diminta → Install
+4. Buka app **ProfileCard** dari app drawer
+
+
+## 👤 Developer
+
+| | |
+|---|---|
+| **Nama** | [Crisdayanti Laggita Br Siagian] |
+| **NIM** | [243303621289] |
+| **Institusi** | Universitas Prima Indonesia — Prodi Sistem Informasi |
+
+---
+
+<div align="center">
+<sub>Dibuat sebagai Final Project mata kuliah Mobile Programming — TI-MOBILE-01</sub>
+</div>
