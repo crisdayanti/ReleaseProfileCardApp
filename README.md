@@ -210,8 +210,8 @@ Scan QR code yang muncul menggunakan aplikasi **Expo Go** di HP fisik (fitur kam
 
 | | |
 |---|---|
-| **Nama** | [Crisdayanti Laggita Br Siagian] |
-| **NIM** | [243303621289] |
+| **Nama** | Crisdayanti Laggita Br Siagian |
+| **NIM** | 243303621289 |
 | **Institusi** | Universitas Prima Indonesia — Prodi Sistem Informasi |
 
 ---
